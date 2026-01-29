@@ -1,0 +1,1175 @@
+﻿@{
+    ViewData["Title"] = "Production Management System";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/dashboard.css" />
+</head>
+
+<body>
+    <div class="main-container">
+        <header class="main-header">
+            <div class="logo">Panasonic</div>
+            <div class="title">Production Management System</div>
+            <div id="current-date" class="date"></div>
+        </header>
+        <main class="main-content">
+            @*<div class="legend-container main-legend">
+                <div class="legend-item">
+                    <span class="legend-color-box" style="background-color: #d90429;"></span>
+                    <span class="legend-label">&lt; 80%</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color-box" style="background-color: yellow;"></span>
+                    <span class="legend-label">&lt; 85%</span>
+                </div>
+            </div>*@
+            <div class="left-column">
+                <img src="~/assets/layout_audio.png" alt="Factory Floor Plan" />
+
+                <svg id="line-overlay">
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="rgba(255, 255, 255, 0.6)" />
+                        </marker>
+                    </defs>
+                </svg>
+
+                <div class="info-balloon" id="line1-unit-marker">
+                    <span class="balloon-title">Line 1</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="line2-unit-marker">
+                    <span class="balloon-title">Line 2</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="line3-unit-marker">
+                    <span class="balloon-title">Line 3</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="line4-unit-marker">
+                    <span class="balloon-title">Line 4</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="line5-unit-marker">
+                    <span class="balloon-title">Line 5</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="line6-unit-marker">
+                    <span class="balloon-title">Line 6</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="line7-unit-marker">
+                    <span class="balloon-title">Line 7</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="line8-unit-marker">
+                    <span class="balloon-title">Line 8</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="line9-unit-marker">
+                    <span class="balloon-title">Line 9</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="line10-unit-marker">
+                    <span class="balloon-title">Line 10</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="line11-unit-marker">
+                    <span class="balloon-title">Line 11</span>
+                    <div class="balloon-details"></div>
+                </div>
+            </div>
+            <div class="right-column">
+                <a href="#" class="card-link">
+                    <div id="assembly-achievement-card" class="widget-card" style="flex: 1;">
+                        <div class="widget-title"><span>Assembly Achievement</span></div>
+                        <div class="achievement-viewport">
+                            <div class="achievement-container">
+
+                                <div class="achievement-page">
+                                    <div class="achievement-chart-wrapper">
+                                        <div class="line-title">Line 1</div>
+                                        <div class="chart-container">
+                                            <canvas id="chart1"></canvas>
+                                            <div class="chart-text-center">
+                                                <div class="spinner-arc"></div>
+                                                <div class="chart-label">Act/Plan</div>
+                                                <div id="chart-values-1" class="chart-value">0/0</div>
+                                            </div>
+                                            <div class="chart-text-start">0</div>
+                                            <div id="chart-end-text-1" class="chart-text-end">0</div>
+                                        </div>
+                                    </div>
+                                    <div class="achievement-chart-wrapper">
+                                        <div class="line-title">Line 2</div>
+                                        <div class="chart-container">
+                                            <canvas id="chart2"></canvas>
+                                            <div class="chart-text-center">
+                                                <div class="spinner-arc"></div>
+                                                <div class="chart-label">Act/Plan</div>
+                                                <div id="chart-values-2" class="chart-value">0/0</div>
+                                            </div>
+                                            <div class="chart-text-start">0</div>
+                                            <div id="chart-end-text-2" class="chart-text-end">0</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="achievement-page">
+                                    <div class="achievement-chart-wrapper">
+                                        <div class="line-title">Line 3</div>
+                                        <div class="chart-container">
+                                            <canvas id="chart3"></canvas>
+                                            <div class="chart-text-center">
+                                                <div class="spinner-arc"></div>
+                                                <div class="chart-label">Act/Plan</div>
+                                                <div id="chart-values-3" class="chart-value">0/0</div>
+                                            </div>
+                                            <div class="chart-text-start">0</div>
+                                            <div id="chart-end-text-3" class="chart-text-end">0</div>
+                                        </div>
+                                    </div>
+                                    <div class="achievement-chart-wrapper">
+                                        <div class="line-title">Line 4</div>
+                                        <div class="chart-container">
+                                            <canvas id="chart4"></canvas>
+                                            <div class="chart-text-center">
+                                                <div class="spinner-arc"></div>
+                                                <div class="chart-label">Act/Plan</div>
+                                                <div id="chart-values-4" class="chart-value">0/0</div>
+                                            </div>
+                                            <div class="chart-text-start">0</div>
+                                            <div id="chart-end-text-4" class="chart-text-end">0</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="achievement-page">
+                                    <div class="achievement-chart-wrapper">
+                                        <div class="line-title">Line 5</div>
+                                        <div class="chart-container">
+                                            <canvas id="chart5"></canvas>
+                                            <div class="chart-text-center">
+                                                <div class="spinner-arc"></div>
+                                                <div class="chart-label">Act/Plan</div>
+                                                <div id="chart-values-5" class="chart-value">0/0</div>
+                                            </div>
+                                            <div class="chart-text-start">0</div>
+                                            <div id="chart-end-text-5" class="chart-text-end">0</div>
+                                        </div>
+                                    </div>
+                                    <div class="achievement-chart-wrapper">
+                                        <div class="line-title">Line 6</div>
+                                        <div class="chart-container">
+                                            <canvas id="chart6"></canvas>
+                                            <div class="chart-text-center">
+                                                <div class="spinner-arc"></div>
+                                                <div class="chart-label">Act/Plan</div>
+                                                <div id="chart-values-6" class="chart-value">0/0</div>
+                                            </div>
+                                            <div class="chart-text-start">0</div>
+                                            <div id="chart-end-text-6" class="chart-text-end">0</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="achievement-page">
+                                    <div class="achievement-chart-wrapper">
+                                        <div class="line-title">Line 7</div>
+                                        <div class="chart-container">
+                                            <canvas id="chart7"></canvas>
+                                            <div class="chart-text-center">
+                                                <div class="spinner-arc"></div>
+                                                <div class="chart-label">Act/Plan</div>
+                                                <div id="chart-values-7" class="chart-value">0/0</div>
+                                            </div>
+                                            <div class="chart-text-start">0</div>
+                                            <div id="chart-end-text-7" class="chart-text-end">0</div>
+                                        </div>
+                                    </div>
+                                    <div class="achievement-chart-wrapper">
+                                        <div class="line-title">Line 8</div>
+                                        <div class="chart-container">
+                                            <canvas id="chart8"></canvas>
+                                            <div class="chart-text-center">
+                                                <div class="spinner-arc"></div>
+                                                <div class="chart-label">Act/Plan</div>
+                                                <div id="chart-values-8" class="chart-value">0/0</div>
+                                            </div>
+                                            <div class="chart-text-start">0</div>
+                                            <div id="chart-end-text-8" class="chart-text-end">0</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="achievement-page">
+                                    <div class="achievement-chart-wrapper">
+                                        <div class="line-title">Line 9</div>
+                                        <div class="chart-container">
+                                            <canvas id="chart9"></canvas>
+                                            <div class="chart-text-center">
+                                                <div class="spinner-arc"></div>
+                                                <div class="chart-label">Act/Plan</div>
+                                                <div id="chart-values-9" class="chart-value">0/0</div>
+                                            </div>
+                                            <div class="chart-text-start">0</div>
+                                            <div id="chart-end-text-9" class="chart-text-end">0</div>
+                                        </div>
+                                    </div>
+                                    <div class="achievement-chart-wrapper">
+                                        <div class="line-title">Line 10</div>
+                                        <div class="chart-container">
+                                            <canvas id="chart10"></canvas>
+                                            <div class="chart-text-center">
+                                                <div class="spinner-arc"></div>
+                                                <div class="chart-label">Act/Plan</div>
+                                                <div id="chart-values-10" class="chart-value">0/0</div>
+                                            </div>
+                                            <div class="chart-text-start">0</div>
+                                            <div id="chart-end-text-10" class="chart-text-end">0</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="achievement-page">
+                                    <div class="achievement-chart-wrapper">
+                                        <div class="line-title">Line 11</div>
+                                        <div class="chart-container">
+                                            <canvas id="chart11"></canvas>
+                                            <div class="chart-text-center">
+                                                <div class="spinner-arc"></div>
+                                                <div class="chart-label">Act/Plan</div>
+                                                <div id="chart-values-11" class="chart-value">0/0</div>
+                                            </div>
+                                            <div class="chart-text-start">0</div>
+                                            <div id="chart-end-text-11" class="chart-text-end">0</div>
+                                        </div>
+                                    </div>
+                                    @* <div class="achievement-chart-wrapper" style="visibility: hidden;"> *@
+                                    @*     <div class="chart-container"></div> *@
+                                    @* </div> *@
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div id="quality-defect-card" class="widget-card" style="flex: 2;">
+                    <div class="widget-title"><span>Quality Defect</span></div>
+                    <div class="achievement-viewport">
+                        <div class="achievement-container" id="quality-slider-container">
+                            <div class="achievement-page">
+                                <div class="quality-defect-container">
+                                    <div class="defect-bar-wrapper">
+                                        <span class="line-title-small">Line 1</span>
+                                        <div class="bar-container">
+                                            <div id="quality-bar-1" class="bar-fill"></div>
+                                            <span class="quality-text">
+                                                <span id="quality-percent-1">0.0</span>%
+                                                <span class="defect-count-label">
+                                                    (<span id="defect-count-1">0</span>
+                                                    defects)
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="defect-bar-wrapper">
+                                        <span class="line-title-small">Line 2</span>
+                                        <div class="bar-container">
+                                            <div id="quality-bar-2" class="bar-fill"></div>
+                                            <span class="quality-text">
+                                                <span id="quality-percent-2">0.0</span>%
+                                                <span class="defect-count-label">
+                                                    (<span id="defect-count-2">0</span>
+                                                    defects)
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="achievement-page">
+                                <div class="quality-defect-container">
+                                    <div class="defect-bar-wrapper">
+                                        <span class="line-title-small">Line 3</span>
+                                        <div class="bar-container">
+                                            <div id="quality-bar-3" class="bar-fill"></div>
+                                            <span class="quality-text">
+                                                <span id="quality-percent-3">0.0</span>%
+                                                <span class="defect-count-label">
+                                                    (<span id="defect-count-3">0</span>
+                                                    defects)
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="defect-bar-wrapper">
+                                        <span class="line-title-small">Line 4</span>
+                                        <div class="bar-container">
+                                            <div id="quality-bar-4" class="bar-fill"></div>
+                                            <span class="quality-text">
+                                                <span id="quality-percent-4">0.0</span>%
+                                                <span class="defect-count-label">
+                                                    (<span id="defect-count-4">0</span>
+                                                    defects)
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="achievement-page">
+                                <div class="quality-defect-container">
+                                    <div class="defect-bar-wrapper">
+                                        <span class="line-title-small">Line 5</span>
+                                        <div class="bar-container">
+                                            <div id="quality-bar-5" class="bar-fill"></div>
+                                            <span class="quality-text">
+                                                <span id="quality-percent-5">0.0</span>%
+                                                <span class="defect-count-label">
+                                                    (<span id="defect-count-5">0</span>
+                                                    defects)
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="defect-bar-wrapper">
+                                        <span class="line-title-small">Line 6</span>
+                                        <div class="bar-container">
+                                            <div id="quality-bar-6" class="bar-fill"></div>
+                                            <span class="quality-text">
+                                                <span id="quality-percent-6">0.0</span>%
+                                                <span class="defect-count-label">
+                                                    (<span id="defect-count-6">0</span>
+                                                    defects)
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="achievement-page">
+                                <div class="quality-defect-container">
+                                    <div class="defect-bar-wrapper">
+                                        <span class="line-title-small">Line 7</span>
+                                        <div class="bar-container">
+                                            <div id="quality-bar-7" class="bar-fill"></div>
+                                            <span class="quality-text">
+                                                <span id="quality-percent-7">0.0</span>%
+                                                <span class="defect-count-label">
+                                                    (<span id="defect-count-7">0</span>
+                                                    defects)
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="defect-bar-wrapper">
+                                        <span class="line-title-small">Line 8</span>
+                                        <div class="bar-container">
+                                            <div id="quality-bar-8" class="bar-fill"></div>
+                                            <span class="quality-text">
+                                                <span id="quality-percent-8">0.0</span>%
+                                                <span class="defect-count-label">
+                                                    (<span id="defect-count-8">0</span>
+                                                    defects)
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="achievement-page">
+                                <div class="quality-defect-container">
+                                    <div class="defect-bar-wrapper">
+                                        <span class="line-title-small">Line 9</span>
+                                        <div class="bar-container">
+                                            <div id="quality-bar-9" class="bar-fill"></div>
+                                            <span class="quality-text">
+                                                <span id="quality-percent-9">0.0</span>%
+                                                <span class="defect-count-label">
+                                                    (<span id="defect-count-9">0</span>
+                                                    defects)
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="defect-bar-wrapper">
+                                        <span class="line-title-small">Line 10</span>
+                                        <div class="bar-container">
+                                            <div id="quality-bar-10" class="bar-fill"></div>
+                                            <span class="quality-text">
+                                                <span id="quality-percent-10">0.0</span>%
+                                                <span class="defect-count-label">
+                                                    (<span id="defect-count-10">0</span>
+                                                    defects)
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="achievement-page">
+                                <div class="quality-defect-container">
+                                    <div class="defect-bar-wrapper">
+                                        <span class="line-title-small">Line 11</span>
+                                        <div class="bar-container">
+                                            <div id="quality-bar-11" class="bar-fill"></div>
+                                            <span class="quality-text">
+                                                <span id="quality-percent-11">0.0</span>%
+                                                <span class="defect-count-label">(<span id="defect-count-11">0</span> defects)</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="assembly-loss-time-card" class="widget-card" style="flex: 3;">
+                    <div class="widget-title">
+                        <div class="legend-container">
+                            <div class="legend-item">
+                                <span class="legend-color-box" style="background-color: #d90429;"></span>
+                                <span class="legend-label">Loss Time</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color-box" style="background-color: #4F86F3;"></span>
+                                <span class="legend-label">Load Time</span>
+                            </div>
+                        </div>
+                        <span>Assembly Loss Time</span>
+                    </div>
+                    <div class="achievement-viewport">
+                        <div id="loss-time-slider-container" class="achievement-container">
+                            <div class="achievement-page">
+                                <div class="loss-time-page-container">
+                                    <div class="loss-line-wrapper">
+                                        <b class="loss-line-title">Line 1</b>
+                                        <div class="loss-summary">
+                                            <div><span>Working Time</span><span id="line1-working-time">0</span></div>
+                                            <div><span>Loss Time</span><span id="line1-loss-time">0</span></div>
+                                            <div><span>Load Time</span><span id="line1-load-time">0</span></div>
+                                        </div>
+                                        <div class="timeline-container">
+                                            <div class="timeline-track-wrapper">
+                                                <div id="timeline-track-line1" class="timeline-track">
+                                                    <div id="timeline-progress-line1" class="timeline-progress"></div>
+                                                </div>
+                                                <div class="timeline-minutes" id="timeline-minutes-line1"></div>
+                                            </div>
+                                            <div class="timeline-hours"></div>
+                                        </div>
+                                    </div>
+                                    <div class="loss-line-wrapper">
+                                        <b class="loss-line-title">Line 2</b>
+                                        <div class="loss-summary">
+                                            <div><span>Working Time</span><span id="line2-working-time">0</span></div>
+                                            <div><span>Loss Time</span><span id="line2-loss-time">0</span></div>
+                                            <div><span>Load Time</span><span id="line2-load-time">0</span></div>
+                                        </div>
+                                        <div class="timeline-container">
+                                            <div class="timeline-track-wrapper">
+                                                <div id="timeline-track-line2" class="timeline-track">
+                                                    <div id="timeline-progress-line2" class="timeline-progress"></div>
+                                                </div>
+                                                <div class="timeline-minutes" id="timeline-minutes-line2"></div>
+                                            </div>
+                                            <div class="timeline-hours"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="achievement-page">
+                                <div class="loss-time-page-container">
+                                    <div class="loss-line-wrapper">
+                                        <b class="loss-line-title">Line 3</b>
+                                        <div class="loss-summary">
+                                            <div><span>Working Time</span><span id="line3-working-time">0</span></div>
+                                            <div><span>Loss Time</span><span id="line3-loss-time">0</span></div>
+                                            <div><span>Load Time</span><span id="line3-load-time">0</span></div>
+                                        </div>
+                                        <div class="timeline-container">
+                                            <div class="timeline-track-wrapper">
+                                                <div id="timeline-track-line3" class="timeline-track">
+                                                    <div id="timeline-progress-line3" class="timeline-progress"></div>
+                                                </div>
+                                                <div class="timeline-minutes" id="timeline-minutes-line3"></div>
+                                            </div>
+                                            <div class="timeline-hours"></div>
+                                        </div>
+                                    </div>
+                                    <div class="loss-line-wrapper">
+                                        <b class="loss-line-title">Line 4</b>
+                                        <div class="loss-summary">
+                                            <div><span>Working Time</span><span id="line4-working-time">0</span></div>
+                                            <div><span>Loss Time</span><span id="line4-loss-time">0</span></div>
+                                            <div><span>Load Time</span><span id="line4-load-time">0</span></div>
+                                        </div>
+                                        <div class="timeline-container">
+                                            <div class="timeline-track-wrapper">
+                                                <div id="timeline-track-line4" class="timeline-track">
+                                                    <div id="timeline-progress-line4" class="timeline-progress"></div>
+                                                </div>
+                                                <div class="timeline-minutes" id="timeline-minutes-line4"></div>
+                                            </div>
+                                            <div class="timeline-hours"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="achievement-page">
+                                <div class="loss-time-page-container">
+                                    <div class="loss-line-wrapper">
+                                        <b class="loss-line-title">Line 5</b>
+                                        <div class="loss-summary">
+                                            <div><span>Working Time</span><span id="line5-working-time">0</span></div>
+                                            <div><span>Loss Time</span><span id="line5-loss-time">0</span></div>
+                                            <div><span>Load Time</span><span id="line5-load-time">0</span></div>
+                                        </div>
+                                        <div class="timeline-container">
+                                            <div class="timeline-track-wrapper">
+                                                <div id="timeline-track-line5" class="timeline-track">
+                                                    <div id="timeline-progress-line5" class="timeline-progress"></div>
+                                                </div>
+                                                <div class="timeline-minutes" id="timeline-minutes-line5"></div>
+                                            </div>
+                                            <div class="timeline-hours"></div>
+                                        </div>
+                                    </div>
+                                    <div class="loss-line-wrapper">
+                                        <b class="loss-line-title">Line 6</b>
+                                        <div class="loss-summary">
+                                            <div><span>Working Time</span><span id="line6-working-time">0</span></div>
+                                            <div><span>Loss Time</span><span id="line6-loss-time">0</span></div>
+                                            <div><span>Load Time</span><span id="line6-load-time">0</span></div>
+                                        </div>
+                                        <div class="timeline-container">
+                                            <div class="timeline-track-wrapper">
+                                                <div id="timeline-track-line6" class="timeline-track">
+                                                    <div id="timeline-progress-line6" class="timeline-progress"></div>
+                                                </div>
+                                                <div class="timeline-minutes" id="timeline-minutes-line6"></div>
+                                            </div>
+                                            <div class="timeline-hours"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="achievement-page">
+                                <div class="loss-time-page-container">
+                                    <div class="loss-line-wrapper">
+                                        <b class="loss-line-title">Line 7</b>
+                                        <div class="loss-summary">
+                                            <div><span>Working Time</span><span id="line7-working-time">0</span></div>
+                                            <div><span>Loss Time</span><span id="line7-loss-time">0</span></div>
+                                            <div><span>Load Time</span><span id="line7-load-time">0</span></div>
+                                        </div>
+                                        <div class="timeline-container">
+                                            <div class="timeline-track-wrapper">
+                                                <div id="timeline-track-line7" class="timeline-track">
+                                                    <div id="timeline-progress-line7" class="timeline-progress"></div>
+                                                </div>
+                                                <div class="timeline-minutes" id="timeline-minutes-line7"></div>
+                                            </div>
+                                            <div class="timeline-hours"></div>
+                                        </div>
+                                    </div>
+                                    <div class="loss-line-wrapper">
+                                        <b class="loss-line-title">Line 8</b>
+                                        <div class="loss-summary">
+                                            <div><span>Working Time</span><span id="line8-working-time">0</span></div>
+                                            <div><span>Loss Time</span><span id="line8-loss-time">0</span></div>
+                                            <div><span>Load Time</span><span id="line8-load-time">0</span></div>
+                                        </div>
+                                        <div class="timeline-container">
+                                            <div class="timeline-track-wrapper">
+                                                <div id="timeline-track-line8" class="timeline-track">
+                                                    <div id="timeline-progress-line8" class="timeline-progress"></div>
+                                                </div>
+                                                <div class="timeline-minutes" id="timeline-minutes-line8"></div>
+                                            </div>
+                                            <div class="timeline-hours"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="achievement-page">
+                                <div class="loss-time-page-container">
+                                    <div class="loss-line-wrapper">
+                                        <b class="loss-line-title">Line 9</b>
+                                        <div class="loss-summary">
+                                            <div><span>Working Time</span><span id="line9-working-time">0</span></div>
+                                            <div><span>Loss Time</span><span id="line9-loss-time">0</span></div>
+                                            <div><span>Load Time</span><span id="line9-load-time">0</span></div>
+                                        </div>
+                                        <div class="timeline-container">
+                                            <div class="timeline-track-wrapper">
+                                                <div id="timeline-track-line9" class="timeline-track">
+                                                    <div id="timeline-progress-line9" class="timeline-progress"></div>
+                                                </div>
+                                                <div class="timeline-minutes" id="timeline-minutes-line9"></div>
+                                            </div>
+                                            <div class="timeline-hours"></div>
+                                        </div>
+                                    </div>
+                                    <div class="loss-line-wrapper">
+                                        <b class="loss-line-title">Line 10</b>
+                                        <div class="loss-summary">
+                                            <div><span>Working Time</span><span id="line10-working-time">0</span></div>
+                                            <div><span>Loss Time</span><span id="line10-loss-time">0</span></div>
+                                            <div><span>Load Time</span><span id="line10-load-time">0</span></div>
+                                        </div>
+                                        <div class="timeline-container">
+                                            <div class="timeline-track-wrapper">
+                                                <div id="timeline-track-line10" class="timeline-track">
+                                                    <div id="timeline-progress-line10" class="timeline-progress"></div>
+                                                </div>
+                                                <div class="timeline-minutes" id="timeline-minutes-line10"></div>
+                                            </div>
+                                            <div class="timeline-hours"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="achievement-page">
+                                <div class="loss-time-page-container">
+                                    <div class="loss-line-wrapper">
+                                        <b class="loss-line-title">Line 11</b>
+                                        <div class="loss-summary">
+                                            <div><span>Working Time</span><span id="line11-working-time">0</span></div>
+                                            <div><span>Loss Time</span><span id="line11-loss-time">0</span></div>
+                                            <div><span>Load Time</span><span id="line11-load-time">0</span></div>
+                                        </div>
+                                        <div class="timeline-container">
+                                            <div class="timeline-track-wrapper">
+                                                <div id="timeline-track-line11" class="timeline-track">
+                                                    <div id="timeline-progress-line11" class="timeline-progress"></div>
+                                                </div>
+                                                <div class="timeline-minutes" id="timeline-minutes-line11"></div>
+                                            </div>
+                                            <div class="timeline-hours"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="machine-efficiency-card" class="widget-card" style="flex: 4;">
+                    <div class="widget-title">Machine Efficiency</div>
+                    <div class="machine-efficiency-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Machine Name</th>
+                                    <th>OEE</th>
+                                    <th>Operating Ratio</th>
+                                    <th>Ability</th>
+                                    <th>Quality</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="widget-card" style="flex: 2;">
+                    <div class="energy-container">
+                        <div class="energy-chart-wrapper">
+                            <div class="energy-chart-title">Total Energy</div>
+                            <div class="energy-chart-canvas-container">
+                                <canvas id="totalEnergyChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="energy-separator"></div>
+
+                        <div class="energy-slider-wrapper">
+                            <div id="energy-slider-title" class="energy-chart-title">CU Energy</div>
+                            <div class="energy-slider-viewport">
+                                <div id="energy-slider-container" class="energy-slider-container">
+                                    <div class="energy-chart-wrapper">
+                                        <div class="energy-chart-canvas-container">
+                                            <canvas id="cuEnergyChart"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="energy-chart-wrapper">
+                                        <div class="energy-chart-canvas-container">
+                                            <canvas id="csEnergyChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="energy-legend">
+                        <div class="legend-item">
+                            <span class="legend-color-box" style="background-color: #d90429;"></span>
+                            <span class="legend-label">Yesterday Consump</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color-box" style="background-color: #4F86F3;"></span>
+                            <span class="legend-label">Today Consump</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="~/lib/chartjs/chart.umd.min.js"></script>
+    <script type="text/javascript">
+        let chart1, chart2, chart3, chart4, chart5, chart6, chart7, chart8, chart9, chart10, chart11;
+        const alertDetails = new Map();
+
+        function scrollToTarget(elementId) {
+            const targetElement = document.getElementById(elementId);
+            const scrollContainer = document.querySelector('.machine-efficiency-table');
+            if (targetElement && scrollContainer) {
+                const targetPosition = targetElement.offsetTop;
+                const containerHeight = scrollContainer.clientHeight;
+                const targetHeight = targetElement.clientHeight;
+                const scrollToPosition = targetPosition - (containerHeight / 2) + (targetHeight / 2);
+                scrollContainer.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
+                targetElement.classList.add('highlight');
+                setTimeout(() => targetElement.classList.remove('highlight'), 2500);
+            }
+        }
+
+        function highlightTarget(elementId) {
+            const targetElement = document.getElementById(elementId);
+            if (targetElement) {
+                targetElement.classList.add('highlight');
+                setTimeout(() => targetElement.classList.remove('highlight'), 2500);
+            }
+        }
+
+        function drawConnectorLines() {
+            const container = document.querySelector('.left-column');
+            const svg = document.getElementById('line-overlay');
+            if (!container || !svg) return;
+            svg.innerHTML = svg.querySelector('defs').outerHTML;
+
+            const machineCoordinates = {
+                'line1-unit-marker': { x: 23, y: 37 },
+                'line2-unit-marker': { x: 11, y: 53 },
+                'line3-unit-marker': { x: 87, y: 73 },
+                'machine-300t': { x: 85, y: 52 },
+                'machine-200t': { x: 84, y: 44 },
+                'machine-400t': { x: 87, y: 64 },
+                'machine-110t-amada': { x: 80, y: 33 },
+                'machine-110t-komatsu': { x: 88, y: 33 },
+                'machine-sf-250': { x: 68, y: 20 },
+                'machine-fix-80': { x: 62, y: 20 },
+                'machine-fix-12': { x: 57, y: 20 },
+                'machine-fix-36': { x: 50, y: 20 },
+                'machine-kyoshin-ori': { x: 51, y: 36 },
+                'machine-kyoshin': { x: 63, y: 36 },
+                'machine-li-chin': { x: 57, y: 36 },
+                'machine-14-row': { x: 83, y: 19 },
+                'machine-7-row': { x: 86, y: 22 },
+                'oven': { x: 69, y: 47 },
+                'evap': { x: 63, y: 65 },
+                'cond': { x: 73, y: 65 }
+            };
+
+            const containerWidth = container.offsetWidth;
+            const containerHeight = container.offsetHeight;
+            for (const balloonId in machineCoordinates) {
+                const balloon = document.getElementById(balloonId);
+                if (balloon) {
+                    const line = document.createElementNS('http:www.w3.org/2000/svg', 'line');
+                    const startX = balloon.offsetLeft + balloon.offsetWidth / 2;
+                    const startY = balloon.classList.contains('tacked-from-top')
+                        ? balloon.offsetTop
+                        : balloon.offsetTop + balloon.offsetHeight;
+                    const endX = (machineCoordinates[balloonId].x / 100) * containerWidth;
+                    const endY = (machineCoordinates[balloonId].y / 100) * containerHeight;
+
+                    line.setAttribute('x1', startX);
+                    line.setAttribute('y1', startY);
+                    line.setAttribute('x2', endX);
+                    line.setAttribute('y2', endY);
+                    line.setAttribute('class', 'connector-line');
+                    svg.appendChild(line);
+                }
+            }
+        }
+
+        function createEnergyChart(canvasId, yesterdayData, todayData, yAxisConfig) {
+            const labels = ['7', '8', '9', '10', '11', '12', '13', '14', '15', '16'];
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Yesterday Consump',
+                    data: yesterdayData,
+                    borderColor: '#d90429',
+                    backgroundColor: '#d90429',
+                    tension: 0.1,
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                }, {
+                    label: 'Today Consump',
+                    data: todayData,
+                    borderColor: '#4F86F3',
+                    backgroundColor: '#4F86F3',
+                    tension: 0.1,
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
+                    pointStyle: 'rect'
+                }]
+            };
+            const options = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: true }
+                },
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#fff' }
+                    },
+                    y: {
+                        ...yAxisConfig,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.2)',
+                            borderDash: [2, 4],
+                        },
+                        ticks: { color: '#fff' },
+                        title: {
+                            display: true,
+                            text: 'KwH',
+                            color: '#fff',
+                            align: 'start',
+                            font: { size: 10 }
+                        }
+                    }
+                }
+            };
+            const ctx = document.getElementById(canvasId).getContext('2d');
+            new Chart(ctx, { type: 'line', data: data, options: options });
+        }
+
+        function createOrUpdateChart(canvasId, chartInstance, actual, dailyPlan) {
+            const actualValue = (dailyPlan > 0 && actual <= dailyPlan) ? actual : (actual > dailyPlan ? dailyPlan : 0);
+            const remainderValue = (dailyPlan > 0) ? dailyPlan - actualValue : 1;
+            const data = {
+                datasets: [{
+                    data: [actualValue, remainderValue < 0 ? 0 : remainderValue],
+                    backgroundColor: ['#4F86F3', '#C7CBFF'],
+                    borderColor: '#14223D', borderWidth: 1, circumference: 180, rotation: 270
+                }]
+            };
+            const options = {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '70%',
+                layout: { padding: { top: 5, bottom: 5 } },
+                plugins: { legend: { display: false }, tooltip: { enabled: false } }
+            };
+            const ctx = document.getElementById(canvasId).getContext('2d');
+            if (chartInstance) {
+                chartInstance.data.datasets[0].data = [actualValue, remainderValue < 0 ? 0 : remainderValue];
+                chartInstance.update();
+                return chartInstance;
+            } else {
+                return new Chart(ctx, { type: 'doughnut', data: data, options: options });
+            }
+        }
+
+        function setDate() {
+            const dateElement = document.getElementById('current-date');
+            const now = new Date();
+            const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const dayOfWeek = weekdays[now.getDay()];
+            const dayOfMonth = now.getDate();
+            const month = months[now.getMonth()];
+            const year = now.getFullYear();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const formattedDate = `${dayOfWeek}, ${dayOfMonth} ${month} ${year} ${hours}:${minutes}`;
+            dateElement.textContent = formattedDate;
+        }
+
+        function drawLossTimeMarkers(trackId, hourlyEvents, totalMinutesInTimeline) {
+            const trackElement = document.getElementById(trackId);
+            if (!trackElement || !hourlyEvents) return;
+            trackElement.querySelectorAll('.loss-marker').forEach(marker => marker.remove());
+            if (totalMinutesInTimeline <= 0) return;
+            for (const hour in hourlyEvents) {
+                if (hourlyEvents.hasOwnProperty(hour)) {
+                    const eventsInHour = hourlyEvents[hour];
+                    eventsInHour.forEach(event => {
+                        const startOffsetMinutes = ((parseInt(hour) - 7) * 60) + event.startMinute;
+                        const leftPercent = (startOffsetMinutes / totalMinutesInTimeline) * 100;
+                        const widthPercent = (event.durationMinutes / totalMinutesInTimeline) * 100;
+                        if (leftPercent + widthPercent <= 100) {
+                            const marker = document.createElement('div');
+                            marker.className = 'loss-marker';
+                            marker.style.left = `${leftPercent}%`;
+                            marker.style.width = `${widthPercent}%`;
+                            trackElement.appendChild(marker);
+                        }
+                    });
+                }
+            }
+        }
+
+        function drawBreakTimeMarkers(trackId, breakTimes, totalMinutesInTimeline) {
+            const trackElement = document.getElementById(trackId);
+            if (!trackElement || !breakTimes) return;
+            trackElement.querySelectorAll('.break-marker').forEach(marker => marker.remove());
+            if (totalMinutesInTimeline <= 0) return;
+            const timelineStartHour = 7;
+            breakTimes.forEach(breakTime => {
+                const startParts = breakTime.start.split(':').map(Number);
+                const endParts = breakTime.end.split(':').map(Number);
+                const startTotalMinutes = startParts[0] * 60 + startParts[1];
+                const endTotalMinutes = endParts[0] * 60 + endParts[1];
+                const startOffsetMinutes = startTotalMinutes - (timelineStartHour * 60);
+                const durationMinutes = endTotalMinutes - startTotalMinutes;
+                if (durationMinutes <= 0) return;
+                const leftPercent = (startOffsetMinutes / totalMinutesInTimeline) * 100;
+                const widthPercent = (durationMinutes / totalMinutesInTimeline) * 100;
+                if (leftPercent + widthPercent <= 100) {
+                    const marker = document.createElement('div');
+                    marker.className = 'break-marker';
+                    marker.style.left = `${leftPercent}%`;
+                    marker.style.width = `${widthPercent}%`;
+                    trackElement.appendChild(marker);
+                }
+            });
+        }
+
+        function updateAssemblyTimeline(lineId, lossData) {
+            const trackElement = document.getElementById(`timeline-track-${lineId}`);
+            const progressElement = document.getElementById(`timeline-progress-${lineId}`);
+            const minutesContainer = document.getElementById(`timeline-minutes-${lineId}`);
+            const hoursElement = document.querySelector(`#timeline-track-${lineId}`).closest('.timeline-container').querySelector('.timeline-hours');
+            if (!trackElement || !hoursElement || !progressElement || !minutesContainer) return;
+
+            const now = new Date();
+            const startHour = 7;
+            const endOfDayHour = 16;
+            let displayEndHour = now.getHours() + 1;
+            if (now.getMinutes() > 0) displayEndHour = Math.max(displayEndHour, now.getHours() + 1);
+            displayEndHour = Math.max(startHour + 1, displayEndHour);
+            displayEndHour = Math.min(displayEndHour, endOfDayHour);
+            const totalMinutesInTimeline = (displayEndHour - startHour) * 60;
+
+            hoursElement.innerHTML = '';
+            for (let h = startHour; h < displayEndHour; h++) {
+                const hourSpan = document.createElement('span');
+                hourSpan.textContent = `${String(h).padStart(2, '0')}.00`;
+                hoursElement.appendChild(hourSpan);
+            }
+
+            minutesContainer.innerHTML = '';
+            if (totalMinutesInTimeline > 0) {
+                let tickInterval;
+                if (totalMinutesInTimeline <= 90) { tickInterval = 5; }
+                else if (totalMinutesInTimeline <= 180) { tickInterval = 10; }
+                else if (totalMinutesInTimeline <= 300) { tickInterval = 15; }
+                else { tickInterval = 30; }
+                const totalTicks = Math.floor(totalMinutesInTimeline / tickInterval);
+                for (let i = 1; i <= totalTicks; i++) {
+                    const currentMinuteInTimeline = i * tickInterval;
+                    if (currentMinuteInTimeline >= totalMinutesInTimeline) continue;
+                    const minuteOfHour = currentMinuteInTimeline % 60;
+                    if (minuteOfHour === 0) continue;
+                    const hourOfTimeline = startHour + Math.floor(currentMinuteInTimeline / 60);
+                    const positionPercent = (currentMinuteInTimeline / totalMinutesInTimeline) * 100;
+                    const tick = document.createElement('div');
+                    tick.className = 'minute-tick';
+                    tick.textContent = `${String(hourOfTimeline).padStart(2, '0')}.${String(minuteOfHour).padStart(2, '0')}`;
+                    if (minuteOfHour === 30) { tick.classList.add('half-hour'); }
+                    else if (minuteOfHour === 15 || minuteOfHour === 45) { tick.classList.add('major-tick'); }
+                    tick.style.left = `${positionPercent}%`;
+                    minutesContainer.appendChild(tick);
+                }
+            }
+
+            drawBreakTimeMarkers(`timeline-track-${lineId}`, lossData.breakTimes, totalMinutesInTimeline);
+            drawLossTimeMarkers(`timeline-track-${lineId}`, lossData.hourlyEvents, totalMinutesInTimeline);
+
+            const timelineStart = new Date(now);
+            timelineStart.setHours(startHour, 0, 0, 0);
+            let elapsedMillis = now - timelineStart;
+            const totalDurationMillis = totalMinutesInTimeline * 60 * 1000;
+            elapsedMillis = Math.max(0, Math.min(elapsedMillis, totalDurationMillis));
+            const progressPercent = (totalDurationMillis > 0) ? (elapsedMillis / totalDurationMillis) * 100 : 0;
+            progressElement.style.width = `${progressPercent}%`;
+        }
+
+        async function fetchData() {
+            try {
+                const response = await fetch('/Home/GetProductionData');
+                if (!response.ok) throw new Error('Network response was not ok');
+
+                const dbData = await response.json();
+
+                for (let i = 1; i <= 11; i++) {
+                    const lineData = dbData[`line${i}`];
+
+                    let currentChart;
+                    try {
+                        currentChart = eval(`chart${i}`);
+                    } catch (e) { currentChart = null; }
+
+                    const updatedChart = createOrUpdateChart(`chart${i}`, currentChart, lineData.totalActual, lineData.dailyPlan);
+
+                    eval(`chart${i} = updatedChart;`);
+
+                    document.getElementById(`chart-values-${i}`).textContent = `${lineData.totalActual}/${lineData.totalPlan}`;
+                    document.getElementById(`chart-end-text-${i}`).textContent = lineData.dailyPlan;
+                }
+
+                for (let i = 1; i <= 11; i++) {
+                    const data = dbData[`line${i}`];
+
+                    // Update UI Quality Bar
+                    const barElem = document.getElementById(`quality-bar-${i}`);
+                    const percentElem = document.getElementById(`quality-percent-${i}`);
+                    const defectElem = document.getElementById(`defect-count-${i}`);
+
+                    if (barElem && percentElem && defectElem) {
+                        barElem.style.width = data.qualityRate + '%'; // Menggunakan Efficiency dari DB
+                        percentElem.textContent = data.qualityRate;
+                        defectElem.textContent = data.totalDefects;
+                    }
+                }
+
+            } catch (error) {
+                console.error("Could not fetch data:", error);
+            }
+        }
+
+        function setupEnergySlider() {
+            const slider = document.getElementById('energy-slider-container');
+            const title = document.getElementById('energy-slider-title');
+            if (!slider || !title) {
+                console.error('Energy slider elements not found');
+                return;
+            }
+
+            const slides = ['CU Energy', 'CS Energy'];
+            let currentSlide = 0;
+
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                slider.style.transform = `translateX(-${currentSlide * 50}%)`;
+                title.textContent = slides[currentSlide];
+            }, 5000);
+        }
+
+        function setupAchievementSlider() {
+            const sliderContainer = document.querySelector('.achievement-container');
+            if (!sliderContainer) return;
+
+            const totalPages = sliderContainer.children.length;
+            let currentPage = 0;
+
+            setInterval(() => {
+                currentPage = (currentPage + 1) % totalPages;
+
+                const offset = -currentPage * (100 / totalPages);
+
+                sliderContainer.style.transform = `translateX(${offset}%)`;
+
+            }, 5000); // Interval 5 detik
+        }
+
+
+        function setupQualitySlider() {
+            const sliderContainer = document.querySelector('#quality-slider-container');
+            if (!sliderContainer) return;
+
+            const totalPages = sliderContainer.children.length;
+            let currentPage = 0;
+
+            setInterval(() => {
+                currentPage = (currentPage + 1) % totalPages;
+                const offset = -currentPage * (100 / totalPages);
+                sliderContainer.style.transform = `translateX(${offset}%)`;
+            }, 5000);
+        }
+
+        function setupLossTimeSlider() {
+            const sliderContainer = document.querySelector('#loss-time-slider-container');
+            if (!sliderContainer) return;
+
+            const totalPages = sliderContainer.children.length;
+            let currentPage = 0;
+
+            setInterval(() => {
+                currentPage = (currentPage + 1) % totalPages;
+                const offset = -currentPage * (100 / totalPages);
+                sliderContainer.style.transform = `translateX(${offset}%)`;
+            }, 5000); // Interval 5 detik
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setDate();
+            setInterval(setDate, 1000);
+
+            drawConnectorLines();
+
+            fetchData();
+            setInterval(() => {
+                fetchData();
+            }, 5000);
+
+            window.addEventListener('resize', drawConnectorLines);
+
+            const leftColumn = document.querySelector('.left-column');
+            leftColumn.addEventListener('click', (event) => {
+                const balloon = event.target.closest('.info-balloon');
+                if (balloon && balloon.classList.contains('alert-balloon')) {
+                    const isAlreadyExpanded = balloon.classList.contains('expanded');
+                    document.querySelectorAll('.info-balloon.expanded').forEach(b => {
+                        if (b !== balloon) b.classList.remove('expanded');
+                    });
+                    balloon.classList.toggle('expanded');
+                    if (!isAlreadyExpanded) {
+                        const details = alertDetails.get(balloon.id);
+                        if (details) {
+                            if (details.type === 'machine') {
+                                scrollToTarget(details.targetId);
+                            } else if (details.type === 'assembly' && Array.isArray(details.targets)) {
+                                details.targets.forEach(targetId => highlightTarget(targetId));
+                            }
+                        }
+                    }
+                }
+            });
+
+            // const yesterdayTotalEnergy = [25, 23, 22, 25, 26, 28, 29, 30, 28, 27];
+            // const todayTotalEnergy = [27, 25, 24, 26, 27, 29, null, null, null, null];
+            // createEnergyChart('totalEnergyChart', yesterdayTotalEnergy, todayTotalEnergy, { min: 10, max: 35, ticks: { stepSize: 5 } });
+
+            // const yesterdayCuEnergy = [18, 19, 19, 20, 21, 22, 23, 22, 21, 20];
+            // const todayCuEnergy = [17, 18, 18, 19, 20, null, null, null, null, null];
+            // createEnergyChart('cuEnergyChart', yesterdayCuEnergy, todayCuEnergy, { min: 10, max: 30, ticks: { stepSize: 5 } });
+
+            // const yesterdayCsEnergy = [15, 16, 14, 17, 18, 17, 16, 15, 14, 13];
+            // const todayCsEnergy = [16, 17, 15, 16, 17, null, null, null, null, null];
+            // createEnergyChart('csEnergyChart', yesterdayCsEnergy, todayCsEnergy, { min: 10, max: 30, ticks: { stepSize: 5 } });
+
+            setupEnergySlider();
+            setupAchievementSlider();
+            setupQualitySlider();
+            setupLossTimeSlider();
+        });
+    </script>
+</body>
+
+</html>
