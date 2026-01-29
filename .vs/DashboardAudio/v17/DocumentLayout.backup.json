@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "C:\\Users\\mghaz\\Magang Panasonic\\Dashboard BU\\Audio\\DashboardAudio\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{69C7E24F-77FD-48AA-8FAC-B20D99EFD48E}|DashboardAudio.csproj|c:\\users\\mghaz\\magang panasonic\\dashboard bu\\audio\\dashboardaudio\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{69C7E24F-77FD-48AA-8FAC-B20D99EFD48E}|DashboardAudio.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69C7E24F-77FD-48AA-8FAC-B20D99EFD48E}|DashboardAudio.csproj|c:\\users\\mghaz\\magang panasonic\\dashboard bu\\audio\\dashboardaudio\\views\\home\\index1.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{69C7E24F-77FD-48AA-8FAC-B20D99EFD48E}|DashboardAudio.csproj|solutionrelative:views\\home\\index1.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69C7E24F-77FD-48AA-8FAC-B20D99EFD48E}|DashboardAudio.csproj|c:\\users\\mghaz\\magang panasonic\\dashboard bu\\audio\\dashboardaudio\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{69C7E24F-77FD-48AA-8FAC-B20D99EFD48E}|DashboardAudio.csproj|solutionrelative:views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69C7E24F-77FD-48AA-8FAC-B20D99EFD48E}|DashboardAudio.csproj|c:\\users\\mghaz\\magang panasonic\\dashboard bu\\audio\\dashboardaudio\\controllers\\homecontroller1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69C7E24F-77FD-48AA-8FAC-B20D99EFD48E}|DashboardAudio.csproj|solutionrelative:controllers\\homecontroller1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69C7E24F-77FD-48AA-8FAC-B20D99EFD48E}|DashboardAudio.csproj|c:\\users\\mghaz\\magang panasonic\\dashboard bu\\audio\\dashboardaudio\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{69C7E24F-77FD-48AA-8FAC-B20D99EFD48E}|DashboardAudio.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{69C7E24F-77FD-48AA-8FAC-B20D99EFD48E}|DashboardAudio.csproj|c:\\users\\mghaz\\magang panasonic\\dashboard bu\\audio\\dashboardaudio\\wwwroot\\css\\dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{69C7E24F-77FD-48AA-8FAC-B20D99EFD48E}|DashboardAudio.csproj|solutionrelative:wwwroot\\css\\dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
@@ -17,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{69C7E24F-77FD-48AA-8FAC-B20D99EFD48E}|DashboardAudio.csproj|c:\\users\\mghaz\\magang panasonic\\dashboard bu\\audio\\dashboardaudio\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{69C7E24F-77FD-48AA-8FAC-B20D99EFD48E}|DashboardAudio.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69C7E24F-77FD-48AA-8FAC-B20D99EFD48E}|DashboardAudio.csproj|c:\\users\\mghaz\\magang panasonic\\dashboard bu\\audio\\dashboardaudio\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{69C7E24F-77FD-48AA-8FAC-B20D99EFD48E}|DashboardAudio.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,8 +46,47 @@
       "DocumentGroups": [
         {
           "DockedHeight": 9,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\mghaz\\Magang Panasonic\\Dashboard BU\\Audio\\DashboardAudio\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\mghaz\\Magang Panasonic\\Dashboard BU\\Audio\\DashboardAudio\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-29T03:39:25.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeController1.cs",
+              "DocumentMoniker": "C:\\Users\\mghaz\\Magang Panasonic\\Dashboard BU\\Audio\\DashboardAudio\\Controllers\\HomeController1.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController1.cs",
+              "ToolTip": "C:\\Users\\mghaz\\Magang Panasonic\\Dashboard BU\\Audio\\DashboardAudio\\Controllers\\HomeController1.cs",
+              "RelativeToolTip": "Controllers\\HomeController1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAiwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-29T03:37:46.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index1.cshtml",
+              "DocumentMoniker": "C:\\Users\\mghaz\\Magang Panasonic\\Dashboard BU\\Audio\\DashboardAudio\\Views\\Home\\Index1.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index1.cshtml",
+              "ToolTip": "C:\\Users\\mghaz\\Magang Panasonic\\Dashboard BU\\Audio\\DashboardAudio\\Views\\Home\\Index1.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index1.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-29T03:35:35.11Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
@@ -43,12 +98,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\mghaz\\Magang Panasonic\\Dashboard BU\\Audio\\DashboardAudio\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\mghaz\\Magang Panasonic\\Dashboard BU\\Audio\\DashboardAudio\\Views\\Shared\\_Layout.cshtml*",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml*",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABYAAABuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-29T03:37:29.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "dashboard.css",
               "DocumentMoniker": "C:\\Users\\mghaz\\Magang Panasonic\\Dashboard BU\\Audio\\DashboardAudio\\wwwroot\\css\\dashboard.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\dashboard.css",
               "ToolTip": "C:\\Users\\mghaz\\Magang Panasonic\\Dashboard BU\\Audio\\DashboardAudio\\wwwroot\\css\\dashboard.css",
               "RelativeToolTip": "wwwroot\\css\\dashboard.css",
-              "ViewState": "AgIAAAwCAAAAAAAAAADwvxACAAALAAAAAAAAAA==",
+              "ViewState": "AgIAAAwCAAAAAAAAAADwvyYCAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-12-10T01:13:53.271Z",
               "EditorCaption": ""
@@ -63,11 +131,12 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-02T08:07:51.903Z"
+              "WhenOpened": "2025-12-02T08:07:51.903Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\mghaz\\Magang Panasonic\\Dashboard BU\\Audio\\DashboardAudio\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
@@ -79,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "AssemblyData.cs",
               "DocumentMoniker": "C:\\Users\\mghaz\\Magang Panasonic\\Dashboard BU\\Audio\\DashboardAudio\\Models\\AssemblyData.cs",
               "RelativeDocumentMoniker": "Models\\AssemblyData.cs",
@@ -91,7 +160,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\mghaz\\Magang Panasonic\\Dashboard BU\\Audio\\DashboardAudio\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
@@ -99,8 +168,7 @@
               "RelativeToolTip": "Views\\Home\\Index.cshtml",
               "ViewState": "AgIAABEAAAAAAAAAAAAAAB4AAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-02T03:03:02.178Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-02T03:03:02.178Z"
             }
           ]
         },

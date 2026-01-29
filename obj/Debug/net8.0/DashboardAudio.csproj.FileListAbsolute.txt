@@ -79,3 +79,4 @@ C:\Users\mghaz\Magang Panasonic\Dashboard BU\Audio\DashboardAudio\obj\Debug\net8
 C:\Users\mghaz\Magang Panasonic\Dashboard BU\Audio\DashboardAudio\obj\Debug\net8.0\DashboardAudio.pdb
 C:\Users\mghaz\Magang Panasonic\Dashboard BU\Audio\DashboardAudio\obj\Debug\net8.0\DashboardAudio.genruntimeconfig.cache
 C:\Users\mghaz\Magang Panasonic\Dashboard BU\Audio\DashboardAudio\obj\Debug\net8.0\ref\DashboardAudio.dll
+C:\Users\mghaz\Magang Panasonic\Dashboard BU\Audio\DashboardAudio\obj\Debug\net8.0\DashboardAudio.sourcelink.json

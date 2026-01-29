@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DashboardAudio")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5bb8b176a849ce0503bae38e1abf9bd58705fff3")]
 [assembly: System.Reflection.AssemblyProductAttribute("DashboardAudio")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DashboardAudio")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
